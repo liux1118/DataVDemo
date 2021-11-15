@@ -1,6 +1,10 @@
 import Vue from 'vue'
 import App from './App.vue'
 
+import VueCompositionAPI from '@vue/composition-api'
+
+Vue.use(VueCompositionAPI)
+
 import dataV from '@jiaminghi/data-view'
 import './assets/css/normalize.css'
 

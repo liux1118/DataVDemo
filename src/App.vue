@@ -1,16 +1,17 @@
 <template>
   <div id="app">
-    <FlyLineMap />
+    <FlyLineMapComp />
   </div>
 </template>
 
 <script>
-import FlyLineMap from './components/Flyline/FlyLineMap.vue'
+// import FlyLineMap from './components/Flyline/FlyLineMap.vue'
+import FlyLineMapComp from './components/Flyline/FlyLineMapComp.vue'
 
 export default {
   name: 'App',
   components: {
-    FlyLineMap
+    FlyLineMapComp
   }
 }
 </script>
