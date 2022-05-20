@@ -37,13 +37,13 @@
           </template>
         </template> -->
 
-        <!-- <template #[item.slotName]="scope"> -->
+        <!-- <template #[item.slotName]="scope">
           <div>
             <div v-if="item.slotName">
-              <!-- <slot :name="item.slotName" :row="scope.row"></slot> -->
+              <slot :name="item.slotName" :row="scope.row"></slot>
             </div>
           </div>
-        <!-- </template> -->
+        </template> -->
       </div>
     </LxTable>
   </div>
