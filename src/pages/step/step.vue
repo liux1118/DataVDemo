@@ -48,9 +48,23 @@
     <div class="step-content">
       <div class="step-content__left">
         <div class="text">请点击开始检测按钮</div>
+        <div class="text"></div>
       </div>
       <div class="step-content__right">
-        <div class="text">异常情况：</div>
+        <div class="error">异常情况：</div>
+        <div class="content" v-for="(item, index) in errorList" :key="index">
+          <qz-icon class="icon-caret-down-copy"></qz-icon>
+          <span class="title">{{ item.title }}</span>
+          <div
+            class="item"
+            v-for="(error, index) in item.itemList"
+            :key="index"
+          >
+            <i class="el-icon-circle-close"></i>
+            <span class="title">{{ error.title }}</span>
+            <div class="suggest">处理建议：{{ error.suggest }}</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -125,6 +139,39 @@ export default {
         },
         {
           status: 'success'
+        }
+      ],
+      errorList: [
+        {
+          title: '网关',
+          itemList: [
+            {
+              title: '网关开启异常',
+              suggest: '当前网关开启异常，'
+            },
+            {
+              title: '网关消费异常',
+              suggest: '当前网关消费异常，'
+            }
+          ]
+        },
+        {
+          title: 'handle',
+          itemList: [
+            {
+              title: 'handle开启异常',
+              suggest: '当前handle开启异常，'
+            }
+          ]
+        },
+        {
+          title: 'handle',
+          itemList: [
+            {
+              title: 'handle开启异常',
+              suggest: '当前handle开启异常，'
+            }
+          ]
         }
       ]
     };
@@ -203,6 +250,7 @@ export default {
       height: 100%;
       .border-style();
       background: #303133;
+      overflow: scroll;
       & .text {
         font-family: PingFangSC-Regular;
         font-size: 14px;
@@ -219,12 +267,43 @@ export default {
       .border-style();
       background: #ffffff;
       border: 1px solid rgba(220, 223, 230, 1);
-      & .text {
+      overflow: scroll;
+      & .error {
         font-family: PingFangSC-Medium;
         font-size: 16px;
         color: #303133;
         letter-spacing: 0.42px;
         font-weight: 500;
+      }
+      & .content {
+        margin-top: 15px;
+        & .icon-caret-down-copy {
+          color: #909399;
+        }
+        & .title {
+          margin-left: 10px;
+        }
+        & .item {
+          font-family: PingFangSC-Regular;
+          font-size: 14px;
+          color: #ff0000;
+          letter-spacing: 0.37px;
+          font-weight: 400;
+          margin-top: 15px;
+          margin-left: 25px;
+          & .title {
+            margin-left: 10px;
+          }
+          & .suggest {
+            font-family: PingFangSC-Regular;
+            font-size: 14px;
+            color: #000000;
+            letter-spacing: 0.37px;
+            font-weight: 400;
+            margin-top: 15px;
+            margin-left: 25px;
+          }
+        }
       }
     }
   }
